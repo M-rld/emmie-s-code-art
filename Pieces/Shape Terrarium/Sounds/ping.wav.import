@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpvb4oekae7j8"
+path="res://.godot/imported/ping.wav-0a449d3e2a170778dc122b7a92361715.sample"
+
+[deps]
+
+source_file="res://Pieces/Shape Terrarium/Sounds/ping.wav"
+dest_files=["res://.godot/imported/ping.wav-0a449d3e2a170778dc122b7a92361715.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

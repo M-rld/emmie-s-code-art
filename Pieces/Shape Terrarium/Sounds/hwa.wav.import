@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://u0eqyartbl17"
+path="res://.godot/imported/hwa.wav-05d78eded87717a5f8831ee0dea037e4.sample"
+
+[deps]
+
+source_file="res://Pieces/Shape Terrarium/Sounds/hwa.wav"
+dest_files=["res://.godot/imported/hwa.wav-05d78eded87717a5f8831ee0dea037e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

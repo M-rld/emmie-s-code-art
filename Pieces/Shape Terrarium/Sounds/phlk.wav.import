@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8y4iwhff5x43"
+path="res://.godot/imported/phlk.wav-3ab9e5a933e711bc9254d82a33aa1ddd.sample"
+
+[deps]
+
+source_file="res://Pieces/Shape Terrarium/Sounds/phlk.wav"
+dest_files=["res://.godot/imported/phlk.wav-3ab9e5a933e711bc9254d82a33aa1ddd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,84 @@
+each cell has a shape, a color, and a direction
+shapes: square, circle, triangle, star, hexagon, pentagon
+colors: white, red, green, yellow, blue
+directions: up, right, down, left, spinning
+each cell also runs on a separate timer, and its behavior is applied in "ticks"; the length of a cell's tick is usually
+a random number between a minimum and a maximum, but sometimes the minimum and maximum times are the same and therefore
+constant
+
+each shape has a different behavior and a different way of reproducing
+a cell's "neighbors" is the 8 surrounding cells
+
+all of the following rules are applied to/by a cell every time it ticks
+
+SQUARES
+non-spinning squares have a minimum tick length of 0.6s and and a maximum of 3.0s
+each non-square neighbor of a square has a 2% chance to turn into a square, with the exception of 
+triangles. when a cell is transformed in this way, it does not tick until the animation finishes
+
+if a square has 4 or more square neighbors, and there are no spinning squares on the board, there is a 1% chance
+for it to turn into a spinning square. when a square transforms into a spinning square, its tick length is 
+immediately set to a minimum and maximum of 0.5s
+
+spinning squares have their tick length decreased by 0.03s, and cycle through all of the colors in order
+if a spinning square's tick length is at or below zero, it explodes, turning all of the cells in its 5x5 
+area into a random color and shape after a random interval from 0.0s to 2.0s (for each transformed cell)
+when a cell is transformed in this way, it does not tick until the animation finishes
+
+TRIANGLES
+triangles have a minimum tick length of 1.0s and a maximum of 3.0s
+triangles have a 10% chance to rotate left, a 10% chance to rotate right, 
+and a 30% chance to move forwards, swapping positions with the cell in front of it
+if a triangle moves against an edge, it turns the cells to its left and right (relative to facing direction)
+into triangles
+
+blue triangles have different tick lengths, having a minimum of 0.1s and a maximum of 0.5s
+however, they are not able to convert other cells into triangles
+
+STARS
+stars have no ticking behavior, but are "triggered" whenever a square or hexagon attempts to change its shape
+when a star is triggered, if it has at least one star neighbor, it transforms as normal and changes a random
+neighboring star to a random color
+otherwise, if there are no star neighbors, it explodes, changing the color of all of the cells in its 5x5 area 
+into its color, and turning 50% of them into stars (via random chance)
+
+HEXAGONS
+hexagons always have a tick duration of 0.4s
+if, among all of its hexagonal neighbors, there is exactly one hexagon with a lower "color value" than itself
+(colors have a value corresponding to the order they're listed at the start), it will attempt to get the neighbor
+in the opposite direction of the other hexagon. if no such neighbor exists, or a 6% chance is rolled, it will
+instead pick a neighbor in one of the other 2 cardinal directions (decided by random chance)
+if the neighbor is an existing cell (not outside of the board), the inciting hexagon will first swap the other hexagon
+with the chosen other neighbor, and then swap the colors of itself and the other hexagon (now in the initial 
+position of the other neighbor)
+this results in hexagons of 2 different colors forming a head and a tail and moving forwards, sometimes turning
+
+if a hexagon has zero hexagonal neighbors, for each neighbor of that hexagon that isn't the same color,
+it has a 0.5% chance of transforming into a hexagon. when a cell is transformed in this way, it does not 
+tick until the animation finishes
+
+CIRCLES
+circles have a minimum tick length of 0.6s and and a maximum of 3.0s
+if a circle has 4 or more neighbors with the same color as itself, it has a 20% chance at "spreading"
+when a *cell* spreads, it will wait a random interval between 0.2 and 1.0 seconds (interrupting its own ticking)
+and turn into a circle of the color of the cell that caused it to spread. afterwards, it will cause all 
+non-circle neighbors of the same color to also "spread"
+
+PENTAGONS
+non-spinning pentagons have no ticking behavior
+when a non-spinning pentagon would be transformed into a different shape, and it is the only pentagon on the board,
+it will "resist" changing shape and turn into a white spinning pentagon instead
+
+spinning pentagons cannot change shape whatsoever
+spinning pentagons have a tick length equal to 
+(3.0 - (amount of spinning pentagons anywhere * 0.1)) seconds, clamped between 0.05s and 3.0s
+non-white spinning pentagons will turn white
+each non-spinning or non-pentagon neighbor of a spinning pentagon has a ((amount of spinning pentagons anywhere)% chance
+to turn into a white spinning pentagon
+
+====
+
+due to the weird nature of the code (as a consequence of me haphazardly throwing this together, more thoughts on that in
+shape.gd) there are tiny differences and nuances not included here. on one hand it kinda hurts the sanctity of 
+it acting similarly simple as a typical cellular automata, but also it does kind of contribute to the weird chaotic 
+bug-like nature of the shapes so idk!! i might revisit the idea later though :3

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2qavstef0ofa"
+path="res://.godot/imported/ieu.wav-decf0dbd7b52d73ba24af6dc81ae0765.sample"
+
+[deps]
+
+source_file="res://Pieces/Shape Terrarium/Sounds/ieu.wav"
+dest_files=["res://.godot/imported/ieu.wav-decf0dbd7b52d73ba24af6dc81ae0765.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

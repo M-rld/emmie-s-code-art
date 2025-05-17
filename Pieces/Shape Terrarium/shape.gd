@@ -41,6 +41,20 @@ enum DIRECTIONS {UP, RIGHT, DOWN, LEFT, SPINNING}
 
 var transitioning := false
 
+## NOTE: this code still has unchecked bugs!! there is some behavior that does not work as intended
+##       - hexagons have strange behavior when choosing where to turn when moving diagonally
+##       - something is making circles overtake different colors way too easily IDK 
+##       - when a triangle swaps with the last pentagon some weird shit happens
+##       - just a balancing thing but circles and pentagons should be nerfed and squares should be buffed
+##       - more probably
+
+##       in general if someone wants to improve or build upon this i think the best decision would be to
+##       abstract each shape into its own class. i was initially kind of against doing this because of the
+##       fact that each class would need to be its own script (although that isn't really that big of a deal
+##       it would just make one of the numbers bigger) but also that these classes would be global within the 
+##       project and would have their namespace exist in other arts that i make in the future. not sure if 
+##       this is actually that big of a deal but whateverrrrr :3 :3 :3
+
 func Tick():
 	if transitioning: StartTimer()
 	
